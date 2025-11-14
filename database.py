@@ -89,3 +89,33 @@ def agregar_categoria(nombre, tipo_gasto):
         print(f"Error al agregar categoría: {e}")
 
         return None, str(e)
+    # database.py
+
+# ... (deja todo el código que ya tenías: imports, credenciales, y las funciones existentes) ...
+
+def agregar_categoria(nombre, tipo_gasto):
+    """Inserta una nueva categoría en la base de datos."""
+    try:
+        # Usamos 'returning="representation"' para que Supabase nos devuelva la fila creada
+        response = supabase.table('categorias').insert({
+            'nombre': nombre,
+            'tipo_gasto': tipo_gasto
+        }).execute()
+        
+        # Comprobamos si hubo algún error (ej: el nombre de la categoría ya existe)
+        if hasattr(response, 'error') and response.error:
+            return None, response.error.message
+            
+        return response.data[0], None # Devuelve la categoría y ningún error
+    except Exception as e:
+        print(f"Error al agregar categoría: {e}")
+        return None, str(e)
+
+def eliminar_transaccion(id_transaccion):
+    """Elimina una transacción de la base de datos usando su ID."""
+    try:
+        supabase.table('transacciones').delete().eq('id', id_transaccion).execute()
+        return True
+    except Exception as e:
+        print(f"Error al eliminar transacción: {e}")
+        return False
