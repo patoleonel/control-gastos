@@ -70,4 +70,5 @@ mostrar_reporte()
 
 # Botón para refrescar el reporte manualmente
 if st.button('Refrescar Reporte'):
+
     st.experimental_rerun()
