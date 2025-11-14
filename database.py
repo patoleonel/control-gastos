@@ -5,13 +5,13 @@ from supabase import create_client, Client
 # Usar los secrets de Streamlit cuando esté desplegado, sino usar variables locales
 try:
     # Esto funcionará en Streamlit Cloud
-    url: str = "https://pwxcmeennjksbtheekez.supabase.co"
-    key: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3eGNtZWVubmprc2J0aGVla2V6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNjA3OTQsImV4cCI6MjA3ODYzNjc5NH0.Pdr78VTSsf9reyIs-rR2GzoJk1_driv7OspzGwgJVug"
+    url: str = ""
+    key: str = ""
 
 except:
     # Esto funcionará para pruebas locales (reemplaza con tus claves)
-    url: str = "https://pwxcmeennjksbtheekez.supabase.co"
-    key: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3eGNtZWVubmprc2J0aGVla2V6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwNjA3OTQsImV4cCI6MjA3ODYzNjc5NH0.Pdr78VTSsf9reyIs-rR2GzoJk1_driv7OspzGwgJVug"
+    url: str = ""
+    key: str = ""
 
     
 supabase: Client = create_client(url, key)
